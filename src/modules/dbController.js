@@ -35,6 +35,7 @@ export const dbControllerActor = (strPathDb, actor) => {
         .then((dataRead) => {
             //отрисовка карточки на странице, отфильтрованной по актёру
             renderFilterActor(dataRead, actor)
+
         })
         .catch((error) => console.log(error))
 }
@@ -45,6 +46,7 @@ export const dbControllerFilms = (strPathDb, film) => {
         .then((dataRead) => {
             //отрисовка карточки на странице, отфильтрованной по актёру
             renderFilterFilms(dataRead, film)
+
         })
         .catch((error) => console.log(error))
 }

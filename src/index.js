@@ -30,7 +30,6 @@ selectActors.addEventListener('input', (e) => {
 })
 //вешаем событие на выбранный фильм из списка select
 selectFilms.addEventListener('input', (e) => {
-    console.log(e.target.selectedIndex)
     //если выбран option 'выберите фильм', то идёт начальная загрузка всей базы карточек
     if (e.target.selectedIndex === 0) {
         start(pathDb)

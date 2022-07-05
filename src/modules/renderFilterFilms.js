@@ -6,6 +6,10 @@ import {
 import {
     createHeroCard
 } from './createHeroCard'
+import {
+    getMovie,
+    checkData,
+} from './helpers'
 //функция отрисовки всей карточки героя, отфильтрованной по актёру
 export const renderFilterFilms = (dbData, film) => {
     const heroesList = document.querySelectorAll('#heroes')
@@ -17,11 +21,16 @@ export const renderFilterFilms = (dbData, film) => {
 
         let hero = document.createElement('div')
         hero.classList.add('hero')
-        for (let i = 0; i < data.movies.length; i++) {
-            if (data.movies[i] === film) {
-                //функцией createHeroCard создаём карточку, потом добавляем в список карточек heroesList[0]
-                heroesList[0].append(createHeroCard(hero, data))
+        //убираем те карты, которые не содержат названий фильмов
+        if (data.movies !== undefined) {
+            for (let i = 0; i < data.movies.length; i++) {
+
+                if (data.movies[i] === film) {
+                    //функцией createHeroCard создаём карточку, потом добавляем в список карточек heroesList[0]
+                    heroesList[0].append(createHeroCard(hero, data))
+                }
             }
         }
+
     });
 }

@@ -30,3 +30,20 @@ export const deleteAllCardsHeroes = () => {
         hero.remove()
     })
 }
+
+//функция обнуляет select актёров
+export const deleteAllActors = () => {
+    let actors = document.querySelectorAll('.actor-option')
+
+    actors.forEach((actor) => {
+        actor.remove()
+    })
+}
+//функция обнуляет select фильмов
+export const deleteAllFilms = () => {
+    let films = document.querySelectorAll('.film-option')
+
+    films.forEach((film) => {
+        film.remove()
+    })
+}

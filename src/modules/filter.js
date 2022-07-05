@@ -1,16 +1,22 @@
+//модуль удаления всех карточек героев
 import {
-    getMovie
-    // checkData,
+    deleteAllActors,
+    deleteAllFilms
 } from './helpers'
 //Здесь создан набор модулей для фильтраций
 export const filter = (dbData) => {
     const selectActor = document.querySelector('.form-select.actor')
     const selectFilm = document.querySelector('.form-select.films')
+
+    deleteAllActors()
+    deleteAllFilms()
+
     //часть модуля выполняет наполнение селекта '.form-select actor' актёрами   
     dbData.forEach(data => {
         let option = document.createElement('option')
+        option.classList.add('actor-option')
 
-        option.innerHTML = `<option class="actor" value="${data.actors}">${data.actors}</option>`
+        option.innerHTML = `<option value="${data.actors}">${data.actors}</option>`
 
         selectActor.append(option)
     });
@@ -48,8 +54,9 @@ export const filter = (dbData) => {
     //запись в select названия фильмов без повторений
     for (let i = 0; i < arrFilms.length; i++) {
         let option = document.createElement('option')
+        option.classList.add('film-option')
 
-        option.innerHTML = `<option class="actor" value="${arrFilms[i]}">${arrFilms[i]}</option>`
+        option.innerHTML = `<option value="${arrFilms[i]}">${arrFilms[i]}</option>`
 
         selectFilm.append(option)
     }
